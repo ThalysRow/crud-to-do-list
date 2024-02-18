@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from "express";
-import { knex } from "../../database/connection";
 import { findTaskById } from "../../utils/tasks.functions";
 interface CustomRequest extends Request {
   userId?: number;
