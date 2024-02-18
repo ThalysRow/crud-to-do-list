@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import { knex } from "../database/connection";
 import { Task } from "../types/types";
+import { findTaskById } from "../utils/tasks.functions";
+import { number } from "joi";
 interface CustomRequest extends Request {
   userId?: number;
 }
@@ -52,4 +54,17 @@ return res.json({Task})
   } catch (error) {
     return res.status(400).json({ message: "Erro em listar tarefa" });
   }
+}
+
+export const findTask = async (req: Request, res: Response) =>{
+const {id} = req.params;
+
+try {
+  const task= await findTaskById(Number(id))
+  return res.json({task})
+
+} catch (error) {
+  return res.status(400).json({ message: "Erro em selecionar tarefa" });
+}
+
 }
