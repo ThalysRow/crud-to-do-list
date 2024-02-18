@@ -31,3 +31,15 @@ export const updateTask = async (req: CustomRequest, res: Response) => {
     return res.status(400).json({ message: "Erro in update task" });
   }
 };
+
+export const deleteTask = async (req: Request, res: Response) => {
+  const { id } = req.params;
+
+  try {
+    await knex<Task>("task").where("id", id).delete();
+
+    return res.status(204).json({});
+  } catch (error) {
+    return res.status(400).json({ message: "Erro in delete task" });
+  }
+};
