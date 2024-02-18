@@ -18,6 +18,7 @@ export const validateNewUser = async (
 
     next();
   } catch (error) {
+    console.log(error)
     return res.status(500).json({ message: "Erro in validate new user" });
   }
 };

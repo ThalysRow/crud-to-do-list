@@ -43,3 +43,13 @@ export const deleteTask = async (req: Request, res: Response) => {
     return res.status(400).json({ message: "Erro in delete task" });
   }
 };
+
+export const listTask = async (req: CustomRequest, res: Response) =>{
+  try {
+    const Task = await knex<Task>("task").where("userid", req.userId)
+return res.json({Task})
+
+  } catch (error) {
+    return res.status(400).json({ message: "Erro em listar tarefa" });
+  }
+}

@@ -3,6 +3,7 @@ import { validateBody } from "../middlewares/validateBody";
 import { schemaNewTask } from "../utils/joi.schema";
 import {
   deleteTask,
+  listTask,
   newTask,
   updateTask,
 } from "../controllers/tasks.Controller";
@@ -20,5 +21,10 @@ taskRouter.patch(
 );
 
 taskRouter.delete("/task/:id", validateUpdateTask, deleteTask);
+taskRouter.get("/task", listTask)
+
+
 
 export default taskRouter;
+
+
