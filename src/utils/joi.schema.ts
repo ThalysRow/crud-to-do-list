@@ -72,3 +72,20 @@ export const scheamaLoginUser = joi.object({
       custom: "Password format invalid",
     }),
 });
+
+export const schemaNewTask = joi.object({
+  description: joi
+    .string()
+    .required()
+    .custom((task, helpers) => {
+      if (task.trim() === "") {
+        return helpers.message({ message: "Format invalid" });
+      }
+    })
+    .messages({
+      "any.required": "The description field is required",
+      "string.empty": "The description field cannot be empty",
+      "string.base": "The description field is a string",
+      custom: "Format invalid",
+    }),
+});
