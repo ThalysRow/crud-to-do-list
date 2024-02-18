@@ -19,3 +19,15 @@ export const newTask = async (req: CustomRequest, res: Response) => {
     return res.status(400).json({ message: "Erro in new task" });
   }
 };
+
+export const updateTask = async (req: CustomRequest, res: Response) => {
+  const { description } = req.body;
+  const { id } = req.params;
+
+  try {
+    await knex<Task>("task").update({ description }).where("id", id);
+    return res.status(204).json();
+  } catch (error) {
+    return res.status(400).json({ message: "Erro in update task" });
+  }
+};
