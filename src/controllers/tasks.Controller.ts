@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import { knex } from "../database/connection";
 import { Task } from "../types/types";
 import { findTaskById } from "../utils/tasks.functions";
-import { number } from "joi";
 interface CustomRequest extends Request {
   userId?: number;
 }
@@ -46,25 +45,22 @@ export const deleteTask = async (req: Request, res: Response) => {
   }
 };
 
-export const listTask = async (req: CustomRequest, res: Response) =>{
+export const listTasks = async (req: CustomRequest, res: Response) => {
   try {
-    const Task = await knex<Task>("task").where("userid", req.userId)
-return res.json({Task})
-
+    const tasks = await knex<Task>("task").where("userid", req.userId);
+    return res.json({ tasks });
   } catch (error) {
-    return res.status(400).json({ message: "Erro em listar tarefa" });
+    return res.status(400).json({ message: "Error in listing tasks" });
   }
-}
+};
 
-export const findTask = async (req: Request, res: Response) =>{
-const {id} = req.params;
+export const findTask = async (req: Request, res: Response) => {
+  const { id } = req.params;
 
-try {
-  const task= await findTaskById(Number(id))
-  return res.json({task})
-
-} catch (error) {
-  return res.status(400).json({ message: "Erro em selecionar tarefa" });
-}
-
-}
+  try {
+    const task = await findTaskById(Number(id));
+    return res.json({ task });
+  } catch (error) {
+    return res.status(400).json({ message: "Error in searching for task" });
+  }
+};

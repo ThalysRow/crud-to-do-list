@@ -4,7 +4,7 @@ import { schemaNewTask } from "../utils/joi.schema";
 import {
   deleteTask,
   findTask,
-  listTask,
+  listTasks,
   newTask,
   updateTask,
 } from "../controllers/tasks.Controller";
@@ -22,10 +22,8 @@ taskRouter.patch(
 );
 
 taskRouter.delete("/task/:id", validateUpdateTask, deleteTask);
-taskRouter.get("/task", listTask)
+taskRouter.get("/task", listTasks);
 
-taskRouter.get("/task/:id", findTask)
+taskRouter.get("/task/:id", validateUpdateTask, findTask);
 
 export default taskRouter;
-
-
