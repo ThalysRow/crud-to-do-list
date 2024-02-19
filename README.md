@@ -76,8 +76,8 @@ Listar todas as tarefas salvas.
 {
 	"userLogin": {
 		"id": 1,
-		"name": "Luis Carlos",
-		"email": "luis@gmail.com"
+		"name": "Nome do Usuário",
+		"email": "user@gmail.com"
 	},
 	"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzA4MzY5NzM4LCJleHAiOjE3MDgzNzE1Mzh9.VnTygKpCGCEEUH19HWtC1M2PLaU5ubLJq3UKOpJ1bjc"
 }
