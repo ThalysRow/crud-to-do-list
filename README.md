@@ -15,13 +15,13 @@ Utilizando os conceitos abordados ao longo do módulo, desenvolvemos uma aplica�
 </p>
 
 ## Funcionalidades
-Cadastrar um usuário;
-Login do usuário;
-Adicionar uma tarefa;
-Editar uma tarefa salva;
-Remover uma tarefa salva;
-Obter uma tarefa;
-Listar todas as tarefas salvas.
+- Cadastrar um usuário;
+- Login do usuário;
+- Adicionar uma tarefa;
+- Editar uma tarefa salva;
+- Remover uma tarefa salva;
+- Obter uma tarefa;
+- Listar todas as tarefas salvas.
 
 ## Requisitos
 
